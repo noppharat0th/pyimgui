@@ -1,4 +1,7 @@
 from imgui_bundle import imgui as ImGui, immapp
+from core.state import SETTING
+
+
 
 def gui():
     style = ImGui.get_style()
@@ -6,8 +9,11 @@ def gui():
 
     style.window_rounding = 10.0
 
-    ImGui.set_next_window_size(ImGui.ImVec2(700, 500))
+    ImGui.set_next_window_size(ImGui.ImVec2(SETTING.window_width, SETTING.window_height))
     ImGui.begin("window", None, ImGui.WindowFlags_.no_title_bar | ImGui.WindowFlags_.no_resize)
+
+    ImGui.text(SETTING.app_name)
+
     ImGui.end()
 
 def render():
